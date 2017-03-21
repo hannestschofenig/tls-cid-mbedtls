@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  dtls-client:
+    build:
+      context: cli
+    container_name: cli
+    entrypoint: /root/init.sh
+    networks:
+      - private
+    stdin_open: true
+    tty: true
+
+  nat-box:
+    build:
+      context: nat
+    container_name: nat
+    entrypoint: /root/init.sh
+    networks:
+      - private
+      - public
+    stdin_open: true
+    tty: true
+
+  dtls-server:
+    build:
+      context: srv
+    container_name: srv
+    entrypoint: /root/init.sh
+    networks:
+      - public
+    stdin_open: true
+    tty: true
+
+networks:
+  private:
+  public:
+
+# vim: ai ts=2 sw=2 et sts=2 ft=yaml
