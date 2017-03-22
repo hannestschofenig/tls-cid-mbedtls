@@ -3,9 +3,9 @@
 up: ; docker-compose up -d
 down: ; docker-compose down
 
-c-sh: up ; docker exec -ti cli bash
-n-sh: up ; docker exec -ti nat bash
-s-sh: up ; docker exec -ti srv bash
+c-sh: up ; docker exec -ti cli bash -i
+n-sh: up ; docker exec -ti nat bash -i
+s-sh: up ; docker exec -ti srv bash -i
 
 help:
 	@echo

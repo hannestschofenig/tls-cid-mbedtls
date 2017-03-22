@@ -2,4 +2,8 @@
 
 set -eux
 
-bash
+# prompt
+echo 'export PS1="[srv] \W # "' > /root/.bashrc
+
+# run shell
+/bin/bash
