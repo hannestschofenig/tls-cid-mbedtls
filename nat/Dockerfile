@@ -14,6 +14,4 @@ RUN apk update \
     tcpdump \
     && rm -rf /var/cache/apk/*
 
-COPY init.sh /root/
-
 # vim: ai ts=2 sw=2 et sts=2

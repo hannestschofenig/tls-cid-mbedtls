@@ -8,6 +8,10 @@ services:
     entrypoint: /root/init.sh
     networks:
       - private
+    volumes:
+      - ./cli:/root
+    cap_add:
+      - NET_ADMIN
     stdin_open: true
     tty: true
 
@@ -19,6 +23,10 @@ services:
     networks:
       - private
       - public
+    volumes:
+      - ./nat:/root
+    cap_add:
+      - NET_ADMIN
     stdin_open: true
     tty: true
 
@@ -29,6 +37,10 @@ services:
     entrypoint: /root/init.sh
     networks:
       - public
+    volumes:
+      - ./srv:/root
+    cap_add:
+      - NET_ADMIN
     stdin_open: true
     tty: true
 

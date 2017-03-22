@@ -1,3 +1,6 @@
+# bash dot-files
+.bash*
+
 # Object files
 *.o
 *.ko

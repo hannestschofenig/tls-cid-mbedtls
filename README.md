@@ -8,7 +8,7 @@ The test bed consists of three docker containers running [Alpine Linux edge](htt
 DTLS client and server live in separate networks (private and public, respectively) which are connected via a NAT gateway.
 
 ```
-            |           |
+            |0         1|
 +--------+  |  +-----+  |  +--------+
 | client |--|--| NAT |--|--| server |
 +--------+  |  +-----+  |  +--------+
