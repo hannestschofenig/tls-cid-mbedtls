@@ -3,6 +3,7 @@ FROM alpine:edge
 RUN apk update \
   && apk add \
     man man-pages \
+    bind-tools \
     bash bash-doc bash-completion \
     util-linux coreutils binutils findutils grep \
     build-base gcc abuild binutils binutils-doc gcc-doc gdb \

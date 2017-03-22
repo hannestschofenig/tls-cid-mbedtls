@@ -1,11 +1,12 @@
 #!/bin/bash
 
-set -eux
+#set -eux
+set -x
 
 # prompt
 echo 'export PS1="[cli] \W # "' > /root/.bashrc
 
-readonly NAT_PRIVATE_IP="172.19.0.3"
+readonly NAT_PRIVATE_IP="$(host -t A nat | awk '{print $4}')"
 
 # configure NAT box as the default gateway
 ip route del default
