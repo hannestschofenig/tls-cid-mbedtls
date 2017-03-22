@@ -1,0 +1,11 @@
+nat/init.sh:
+- get interface of nat box on public network
+- get interface of nat box on private network
+
+cli/init.sh [NOT NEEDED ANYMORE]:
+- get IP address of nat box on the private network
+	docker network inspect \
+		--format '{{ range $c := .Containers }}{{ if eq $c.Name "nat" }}{{ $c.IPv4Address }}{{ end }}{{ end }}' \
+		tlscidmbedtls_private \
+	| cut -d'/' -f1
+
