@@ -5,11 +5,12 @@ services:
     build:
       context: cli
     container_name: cli
-    entrypoint: /root/init.sh
+    entrypoint: /root/cli/init.sh
     networks:
       - private
     volumes:
-      - ./cli:/root
+      - ./cli:/root/cli
+      - ./mbedtls:/root/mbedtls
     cap_add:
       - NET_ADMIN
     stdin_open: true
@@ -19,14 +20,16 @@ services:
     build:
       context: nat
     container_name: nat
-    entrypoint: /root/init.sh
+    entrypoint: /root/nat/init.sh
     networks:
       - private
       - public
     volumes:
-      - ./nat:/root
+      - ./nat:/root/nat
+      - ./mbedtls:/root/mbedtls
     cap_add:
       - NET_ADMIN
+      - SYS_ADMIN
     stdin_open: true
     tty: true
 
@@ -34,11 +37,12 @@ services:
     build:
       context: srv
     container_name: srv
-    entrypoint: /root/init.sh
+    entrypoint: /root/srv/init.sh
     networks:
       - public
     volumes:
-      - ./srv:/root
+      - ./srv:/root/srv
+      - ./mbedtls:/root/mbedtls
     cap_add:
       - NET_ADMIN
     stdin_open: true

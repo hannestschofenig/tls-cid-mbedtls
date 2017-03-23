@@ -10,6 +10,7 @@ RUN apk update \
     git \
     linux-headers \
     make \
+    perl \
     cmake cmake-doc \
     iproute2 iproute2-doc iputils \
     tcpdump \

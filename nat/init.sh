@@ -1,6 +1,12 @@
 #!/bin/bash
 
 nat_setup() {
+  local timeout_init=30
+  local timeout_established=180
+
+#  sysctl -w net.netfilter.nf_conntrack_udp_timeout=${timeout_init}
+#  sysctl -w net.netfilter.nf_conntrack_udp_timeout_stream=${timeout_established}
+
   # NAT configuration
   #
   # XXX(tho) Assumes a defined and fixed association between network interface
