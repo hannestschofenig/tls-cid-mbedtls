@@ -10,7 +10,7 @@ services:
       - private
     volumes:
       - ./cli:/root/cli
-      - ./mbedtls:/root/mbedtls
+      - ./mbedtls-tf:/root/mbedtls
     cap_add:
       - NET_ADMIN
     stdin_open: true
@@ -26,7 +26,6 @@ services:
       - public
     volumes:
       - ./nat:/root/nat
-      - ./mbedtls:/root/mbedtls
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
@@ -42,7 +41,7 @@ services:
       - public
     volumes:
       - ./srv:/root/srv
-      - ./mbedtls:/root/mbedtls
+      - ./mbedtls-tf:/root/mbedtls
     cap_add:
       - NET_ADMIN
     stdin_open: true

@@ -1,0 +1,3 @@
+[submodule "mbedtls-tf"]
+	path = mbedtls-tf
+	url = git@github.com:thomas-fossati/mbedtls.git
