@@ -4,7 +4,7 @@ up: ; docker-compose up -d
 down: ; docker-compose down
 
 c-sh: up ; docker exec -ti cli bash -i
-n-sh: up ; docker exec -ti nat bash -i
+n-sh: up ; docker exec -ti --privileged nat bash -i
 s-sh: up ; docker exec -ti srv bash -i
 
 update-mbedtls: ; git submodule update --init --recursive

@@ -1,3 +1,19 @@
+- a script to
+	a) read current NAT settings:
+		iptables --verbose --list POSTROUTING --table nat --line-numbers | grep 4433
+
+	b) configure NAT to a specific source port for 4433 traffic
+
+		export SRC_PORT=12312	
+		iptables --table nat --append POSTROUTING --out-interface ${public_interface} --protocol udp --destination-port 4433 --jump MASQUERADE --to-ports ${SRC_PORT}
+
+	c) remove current mapping
+		rule_no="$(iptables --verbose --list POSTROUTING --table nat --line-numbers | grep 4433 | awk '{print $1}')"
+		test "${rule_no}" && iptables --table nat --delete POSTROUTING ${rule_no}
+
+	d) c)+b), i.e. simulates NAT rebind
+
+
 nat/init.sh:
 - get interface of nat box on public network
 - get interface of nat box on private network
